@@ -19,9 +19,9 @@ class AppEnvironmentSettings(BaseSettings):
 
 
 class DatabaseSettings(BaseSettings):
-    url_dev: str
-    url_homolog: str
-    url_prod: str
+    url_dev: str | None = None
+    url_homolog: str | None = None
+    url_prod: str | None = None
 
     model_config = {"env_prefix": "DATABASE_"}
 
@@ -36,7 +36,7 @@ class DatabaseSettings(BaseSettings):
 
 
 class SentrySettings(BaseSettings):
-    dns: str
+    dns: str | None = None
 
     model_config = {
         "env_prefix": "SENTRY_",
