@@ -19,7 +19,7 @@ def challenge_entrypoint(request: ChallengeRequest):
     list_numbers = request.operands
 
     if not list_numbers or len(list_numbers) < 2:
-        raise HTTPException(status_code=400, detail="Esqueceu números!")
+        raise HTTPException(status_code=400, detail= "Precisa de Dois Números")
 
     if operator == "sum":
         result = sum(list_numbers)
