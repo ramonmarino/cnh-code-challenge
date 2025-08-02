@@ -1,57 +1,75 @@
-# CNH CODE CHALLENGE
+# Challenge API
 
-## How to run the project
+A simple FastAPI-based service that performs basic arithmetic operations.
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/your-org/your-repo.git
-cd your-repo
+## Features
 
-# 2. Create and activate a virtual environment
-python3 -m venv venv
-source venv/bin/activate  # Linux/macOS
-venv\Scripts\activate   # Windows
+- Four basic operations: sum, subtract, multiply, divide
+- Validates input with clear error messages
+- Structured with modular code: services, routes, logs, etc.
+- Basic logging
+- Ready for unit testing and extension
 
-# 3. Install dependencies
+## Tech Stack
+
+- Python 3.11+
+- FastAPI
+- Uvicorn (for local dev server)
+- Pydantic (data validation)
+- Logging module
+
+## Project Structure
+
+
+## How to Run
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/ramonmarino/cnh-code-challenge.git
+   cd cnh-code-challenge
+
+Install dependencies:
+
 pip install -r requirements.txt
 
-# 4. Run the API locally
+Run the server:
+
 uvicorn app.main:app --reload
-```
 
-Access the application at: http://localhost:8000/docs
+Open in browser:
 
----
+http://127.0.0.1:8000/docs
 
-## Challenge: Create the `/challenge` route
+Sample Request
 
-Your task is to implement an API route named `/challenge` that receives requests in the following format:
-
-```json
+json
+POST /api/v1/challenge
 {
-  "operation":
-  "operands":
+  "operation": "sum",
+  "operands": [10, 5]
 }
-```
+Supported operations:
 
-The route should return the result of the requested mathematical operation, based on the values provided. Supported operations:
+sum
+subtract
+multiply
+divide
 
-- "sum"
-- "subtract"
-- "multiply"
-- "divide"
----
+Response
+json
+{
+  "result": 15
+}
+Error Handling
 
-## Challenge rules
+Invalid operations return:
+400: Invalid operation type. Supported operations are: sum, subtract, multiply, divide
 
-- Follow the provided architecture pattern
-- Use the existing structured logging and `.env` configuration system
-- Create a new branch for your implementation
-- Submit a Pull Request with your solution
-- Add `@huelerssey-qd` as a reviewer to your Pull Request
----
-## Purpose
+Less than 2 operands:
+400: At least two operands are required.
 
-This challenge does not have a right or wrong answer.
+Division by zero:
+400: Division by zero is not allowed.**
 
-The goal is to assess your reasoning clarity, understanding of structure, and prepare the team for the upcoming CNH project.
+
+
