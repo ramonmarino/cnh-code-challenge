@@ -43,11 +43,13 @@ http://127.0.0.1:8000/docs
 Sample Request
 
 json
+
 POST /api/v1/challenge
 {
   "operation": "sum",
   "operands": [10, 5]
 }
+
 Supported operations:
 
 sum
@@ -56,10 +58,12 @@ multiply
 divide
 
 Response
+
 json
 {
   "result": 15
 }
+
 Error Handling
 
 Invalid operations return:
