@@ -1,12 +1,12 @@
 from fastapi import FastAPI
-from app.routes.router import api_router
+from app.routes.challenge.router import api_router
 from app.settings.app_config import AppConfig
 
 
 config = AppConfig()
 
 app = FastAPI(
-    title="Code Challenge API",
+    title="Code Rambo Last Blood API",
     openapi_url=f"{config.get_root_path()}/openapi.json",
     root_path=config.get_root_path(),
 )
